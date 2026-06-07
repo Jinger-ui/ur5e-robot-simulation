@@ -8,6 +8,7 @@ venv/
 
 # Logs
 *.log
+output.log
 
 # Third-party cloned repos (reference only)
 webots_ros2/
