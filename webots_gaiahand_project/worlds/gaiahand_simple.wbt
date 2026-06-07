@@ -1,0 +1,665 @@
+#VRML_SIM R2025a utf8
+
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/backgrounds/protos/TexturedBackground.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/backgrounds/protos/TexturedBackgroundLight.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/floors/protos/RectangleArena.proto"
+
+WorldInfo {
+  title "GaiaHand Simplified (Native Geometry)"
+  basicTimeStep 16
+  contactProperties [
+    ContactProperties {
+      material1 "default"
+      material2 "default"
+      coulombFriction [0.5]
+    }
+  ]
+}
+Viewpoint {
+  orientation -0.3 0.1 0.95 0.8
+  position 0.35 -0.45 0.45
+  follow "RightGaiahand"
+}
+TexturedBackground {
+}
+TexturedBackgroundLight {
+}
+RectangleArena {
+  floorSize 1 1
+  floorAppearance PBRAppearance {
+    baseColor 0.9 0.9 0.9
+    roughness 1
+    metalness 0
+  }
+}
+Robot {
+  translation 0 0.2 0
+  rotation 1 0 0 -1.5708
+  children [
+    DEF PALM_VISUAL Pose {
+      translation 0.003 -0.003 0.075
+      children [
+        Shape {
+          appearance DEF BODY_APP PBRAppearance {
+            baseColor 0.75 0.78 0.90
+            roughness 0.6
+            metalness 0.1
+          }
+          geometry Box {
+            size 0.020 0.082 0.150
+          }
+        }
+      ]
+    }
+    HingeJoint {
+      jointParameters HingeJointParameters {
+        axis 0.999993 0.000007 -0.003696
+        anchor 0.002549 -0.038291 0.129310
+      }
+      device [
+        RotationalMotor {
+          name "right_little_joint_1"
+          minPosition -0.105
+          maxPosition 0.349
+          maxTorque 10000
+        }
+        PositionSensor {
+          name "right_little_joint_1_sensor"
+        }
+      ]
+      endPoint Solid {
+        translation 0.002549 -0.038291 0.129310
+        rotation 0.708412 0.000003 0.705799 3.141598
+        children [
+          DEF LITTLE_L1 Pose {
+            translation 0.0065 0 0
+            children [
+              Shape {
+                appearance DEF JOINT_APP PBRAppearance {
+                  baseColor 0.55 0.58 0.70
+                  roughness 0.5
+                  metalness 0.15
+                }
+                geometry Box {
+                  size 0.013 0.010 0.010
+                }
+              }
+            ]
+          }
+          HingeJoint {
+            jointParameters HingeJointParameters {
+              axis 0.000000 1.000000 0.000004
+              anchor 0.013000 0.000000 0.000000
+            }
+            device [
+              RotationalMotor {
+                name "right_little_joint_2"
+                minPosition -0.349
+                maxPosition 1.57
+                maxTorque 10000
+              }
+              PositionSensor {
+                name "right_little_joint_2_sensor"
+              }
+            ]
+            endPoint Solid {
+              translation 0.013000 0.000000 0.000000
+              rotation 1.000000 0.000000 0.000000 1.570800
+              children [
+                DEF LITTLE_L2 Pose {
+                  translation 0.024 0 0
+                  children [
+                    Shape {
+                      appearance DEF FINGER_APP PBRAppearance {
+                        baseColor 0.82 0.84 0.93
+                        roughness 0.5
+                        metalness 0.1
+                      }
+                      geometry Box {
+                        size 0.048 0.012 0.008
+                      }
+                    }
+                  ]
+                }
+                HingeJoint {
+                  jointParameters HingeJointParameters {
+                    axis 0.000000 0.000000 1.000000
+                    anchor 0.047570 0.000000 0.000000
+                  }
+                  device [
+                    RotationalMotor {
+                      name "right_little_joint_3"
+                      maxPosition 1.57
+                      maxTorque 10000
+                    }
+                    PositionSensor {
+                      name "right_little_joint_3_sensor"
+                    }
+                  ]
+                  endPoint Solid {
+                    translation 0.047570 0.000000 0.000000
+                    children [
+                      DEF LITTLE_L3 Pose {
+                        translation 0.020 0 0
+                        children [
+                          Shape {
+                            appearance DEF TIP_APP PBRAppearance {
+                              baseColor 0.90 0.85 0.75
+                              roughness 0.4
+                              metalness 0.05
+                            }
+                            geometry Box {
+                              size 0.040 0.010 0.007
+                            }
+                          }
+                        ]
+                      }
+                    ]
+                    name "solid2"
+                    boundingObject USE LITTLE_L3
+                    physics Physics {
+                      density -1
+                      mass 0.004599
+                    }
+                  }
+                }
+              ]
+              name "solid1"
+              boundingObject USE LITTLE_L2
+              physics Physics {
+                density -1
+                mass 0.010171
+              }
+            }
+          }
+        ]
+        name "solid0"
+        boundingObject USE LITTLE_L1
+        physics Physics {
+          density -1
+          mass 0.004680
+        }
+      }
+    }
+    HingeJoint {
+      jointParameters HingeJointParameters {
+        axis 0.999993 0.000007 -0.003696
+        anchor 0.002549 -0.016251 0.135450
+      }
+      device [
+        RotationalMotor {
+          name "right_ring_joint_1"
+          minPosition -0.175
+          maxPosition 0.349
+          maxTorque 10000
+        }
+        PositionSensor {
+          name "right_ring_joint_1_sensor"
+        }
+      ]
+      endPoint Solid {
+        translation 0.002549 -0.016251 0.135450
+        rotation 0.708412 0.000003 0.705799 3.141598
+        children [
+          DEF RING_L1 Pose {
+            translation 0.0065 0 0
+            children [
+              Shape {
+                appearance USE JOINT_APP
+                geometry Box {
+                  size 0.013 0.010 0.010
+                }
+              }
+            ]
+          }
+          HingeJoint {
+            jointParameters HingeJointParameters {
+              axis 0.000000 1.000000 0.000004
+              anchor 0.013000 0.000000 0.000000
+            }
+            device [
+              RotationalMotor {
+                name "right_ring_joint_2"
+                minPosition -0.349
+                maxPosition 1.57
+                maxTorque 10000
+              }
+              PositionSensor {
+                name "right_ring_joint_2_sensor"
+              }
+            ]
+            endPoint Solid {
+              translation 0.013000 0.000000 0.000000
+              rotation 1.000000 0.000000 0.000000 1.570800
+              children [
+                DEF RING_L2 Pose {
+                  translation 0.024 0 0
+                  children [
+                    Shape {
+                      appearance USE FINGER_APP
+                      geometry Box {
+                        size 0.048 0.012 0.008
+                      }
+                    }
+                  ]
+                }
+                HingeJoint {
+                  jointParameters HingeJointParameters {
+                    axis 0.000000 0.000000 1.000000
+                    anchor 0.047570 0.000000 0.000000
+                  }
+                  device [
+                    RotationalMotor {
+                      name "right_ring_joint_3"
+                      maxPosition 1.57
+                      maxTorque 10000
+                    }
+                    PositionSensor {
+                      name "right_ring_joint_3_sensor"
+                    }
+                  ]
+                  endPoint Solid {
+                    translation 0.047570 0.000000 0.000000
+                    rotation 0.000000 0.000000 -1.000000 0.003672
+                    children [
+                      DEF RING_L3 Pose {
+                        translation 0.020 0 0
+                        children [
+                          Shape {
+                            appearance USE TIP_APP
+                            geometry Box {
+                              size 0.040 0.010 0.007
+                            }
+                          }
+                        ]
+                      }
+                    ]
+                    name "solid5"
+                    boundingObject USE RING_L3
+                    physics Physics {
+                      density -1
+                      mass 0.004599
+                    }
+                  }
+                }
+              ]
+              name "solid4"
+              boundingObject USE RING_L2
+              physics Physics {
+                density -1
+                mass 0.009666
+              }
+            }
+          }
+        ]
+        name "solid3"
+        boundingObject USE RING_L1
+        physics Physics {
+          density -1
+          mass 0.004251
+        }
+      }
+    }
+    HingeJoint {
+      jointParameters HingeJointParameters {
+        axis 0.999993 0.000007 -0.003696
+        anchor 0.002549 0.005723 0.141970
+      }
+      device [
+        RotationalMotor {
+          name "right_middle_joint_1"
+          minPosition -0.314
+          maxPosition 0.401
+          maxTorque 10000
+        }
+        PositionSensor {
+          name "right_middle_joint_1_sensor"
+        }
+      ]
+      endPoint Solid {
+        translation 0.002549 0.005723 0.141970
+        rotation 0.708412 0.000003 0.705799 3.141598
+        children [
+          DEF MIDDLE_L1 Pose {
+            translation 0.0065 0 0
+            children [
+              Shape {
+                appearance USE JOINT_APP
+                geometry Box {
+                  size 0.013 0.010 0.010
+                }
+              }
+            ]
+          }
+          HingeJoint {
+            jointParameters HingeJointParameters {
+              axis 0.000000 1.000000 0.000004
+              anchor 0.013000 0.000000 0.000000
+            }
+            device [
+              RotationalMotor {
+                name "right_middle_joint_2"
+                minPosition -0.349
+                maxPosition 1.57
+                maxTorque 10000
+              }
+              PositionSensor {
+                name "right_middle_joint_2_sensor"
+              }
+            ]
+            endPoint Solid {
+              translation 0.013000 0.000000 0.000000
+              rotation 1.000000 0.000000 0.000000 1.570800
+              children [
+                DEF MIDDLE_L2 Pose {
+                  translation 0.024 0 0
+                  children [
+                    Shape {
+                      appearance USE FINGER_APP
+                      geometry Box {
+                        size 0.048 0.012 0.008
+                      }
+                    }
+                  ]
+                }
+                HingeJoint {
+                  jointParameters HingeJointParameters {
+                    axis 0.000000 0.000000 1.000000
+                    anchor 0.047570 0.000000 0.000000
+                  }
+                  device [
+                    RotationalMotor {
+                      name "right_middle_joint_3"
+                      maxPosition 1.57
+                      maxTorque 10000
+                    }
+                    PositionSensor {
+                      name "right_middle_joint_3_sensor"
+                    }
+                  ]
+                  endPoint Solid {
+                    translation 0.047570 0.000000 0.000000
+                    children [
+                      DEF MIDDLE_L3 Pose {
+                        translation 0.020 0 0
+                        children [
+                          Shape {
+                            appearance USE TIP_APP
+                            geometry Box {
+                              size 0.040 0.010 0.007
+                            }
+                          }
+                        ]
+                      }
+                    ]
+                    name "solid8"
+                    boundingObject USE MIDDLE_L3
+                    physics Physics {
+                      density -1
+                      mass 0.004599
+                    }
+                  }
+                }
+              ]
+              name "solid7"
+              boundingObject USE MIDDLE_L2
+              physics Physics {
+                density -1
+                mass 0.009666
+              }
+            }
+          }
+        ]
+        name "solid6"
+        boundingObject USE MIDDLE_L1
+        physics Physics {
+          density -1
+          mass 0.004251
+        }
+      }
+    }
+    HingeJoint {
+      jointParameters HingeJointParameters {
+        axis 0.999993 0.000007 -0.003696
+        anchor 0.002549 0.027928 0.138010
+      }
+      device [
+        RotationalMotor {
+          name "right_index_joint_1"
+          minPosition -0.262
+          maxPosition 0.262
+          maxTorque 10000
+        }
+        PositionSensor {
+          name "right_index_joint_1_sensor"
+        }
+      ]
+      endPoint Solid {
+        translation 0.002549 0.027928 0.138010
+        rotation 0.708412 0.000003 0.705799 3.141598
+        children [
+          DEF INDEX_L1 Pose {
+            translation 0.0065 0 0
+            children [
+              Shape {
+                appearance USE JOINT_APP
+                geometry Box {
+                  size 0.013 0.010 0.010
+                }
+              }
+            ]
+          }
+          HingeJoint {
+            jointParameters HingeJointParameters {
+              axis 0.000000 1.000000 0.000004
+              anchor 0.013000 0.000000 0.000000
+            }
+            device [
+              RotationalMotor {
+                name "right_index_joint_2"
+                minPosition -0.349
+                maxPosition 1.57
+                maxTorque 10000
+              }
+              PositionSensor {
+                name "right_index_joint_2_sensor"
+              }
+            ]
+            endPoint Solid {
+              translation 0.013000 0.000000 0.000000
+              rotation 1.000000 0.000000 0.000000 1.570800
+              children [
+                DEF INDEX_L2 Pose {
+                  translation 0.024 0 0
+                  children [
+                    Shape {
+                      appearance USE FINGER_APP
+                      geometry Box {
+                        size 0.048 0.012 0.008
+                      }
+                    }
+                  ]
+                }
+                HingeJoint {
+                  jointParameters HingeJointParameters {
+                    axis 0.000000 0.000000 1.000000
+                    anchor 0.047570 0.000000 0.000000
+                  }
+                  device [
+                    RotationalMotor {
+                      name "right_index_joint_3"
+                      maxPosition 1.57
+                      maxTorque 10000
+                    }
+                    PositionSensor {
+                      name "right_index_joint_3_sensor"
+                    }
+                  ]
+                  endPoint Solid {
+                    translation 0.047570 0.000000 0.000000
+                    children [
+                      DEF INDEX_L3 Pose {
+                        translation 0.020 0 0
+                        children [
+                          Shape {
+                            appearance USE TIP_APP
+                            geometry Box {
+                              size 0.040 0.010 0.007
+                            }
+                          }
+                        ]
+                      }
+                    ]
+                    name "solid11"
+                    boundingObject USE INDEX_L3
+                    physics Physics {
+                      density -1
+                      mass 0.004599
+                    }
+                  }
+                }
+              ]
+              name "solid10"
+              boundingObject USE INDEX_L2
+              physics Physics {
+                density -1
+                mass 0.009666
+              }
+            }
+          }
+        ]
+        name "solid9"
+        boundingObject USE INDEX_L1
+        physics Physics {
+          density -1
+          mass 0.004251
+        }
+      }
+    }
+    HingeJoint {
+      jointParameters HingeJointParameters {
+        axis -0.003667 0.000137 0.999993
+        anchor 0.011768 0.033113 0.088490
+      }
+      device [
+        RotationalMotor {
+          name "right_thumb_joint_1"
+          minPosition -0.349
+          maxPosition 0.96
+          maxTorque 10000
+        }
+        PositionSensor {
+          name "right_thumb_joint_1_sensor"
+        }
+      ]
+      endPoint Solid {
+        translation 0.011768 0.033113 0.088490
+        rotation -0.000754 -0.069331 -0.997593 0.052931
+        children [
+          DEF THUMB_L1 Pose {
+            translation 0.0065 0 0
+            children [
+              Shape {
+                appearance USE JOINT_APP
+                geometry Box {
+                  size 0.013 0.010 0.010
+                }
+              }
+            ]
+          }
+          HingeJoint {
+            jointParameters HingeJointParameters {
+              axis 0.000000 1.000000 0.000004
+              anchor 0.013000 0.000000 0.000000
+            }
+            device [
+              RotationalMotor {
+                name "right_thumb_joint_2"
+                maxPosition 1.05
+                maxTorque 10000
+              }
+              PositionSensor {
+                name "right_thumb_joint_2_sensor"
+              }
+            ]
+            endPoint Solid {
+              translation 0.013000 0.000000 0.000000
+              rotation 1.000000 0.000000 0.000000 1.570800
+              children [
+                DEF THUMB_L2 Pose {
+                  translation 0.024 0 0
+                  children [
+                    Shape {
+                      appearance USE FINGER_APP
+                      geometry Box {
+                        size 0.048 0.012 0.008
+                      }
+                    }
+                  ]
+                }
+                HingeJoint {
+                  jointParameters HingeJointParameters {
+                    axis 0.000000 0.000000 1.000000
+                    anchor 0.047570 0.000000 0.000000
+                  }
+                  device [
+                    RotationalMotor {
+                      name "right_thumb_joint_3"
+                      maxPosition 1.57
+                      maxTorque 10000
+                    }
+                    PositionSensor {
+                      name "right_thumb_joint_3_sensor"
+                    }
+                  ]
+                  endPoint Solid {
+                    translation 0.047570 0.000000 0.000000
+                    rotation 0.000000 0.000000 -1.000000 0.003672
+                    children [
+                      DEF THUMB_L3 Pose {
+                        translation 0.020 0 0
+                        children [
+                          Shape {
+                            appearance USE TIP_APP
+                            geometry Box {
+                              size 0.040 0.010 0.007
+                            }
+                          }
+                        ]
+                      }
+                    ]
+                    name "solid14"
+                    boundingObject USE THUMB_L3
+                    physics Physics {
+                      density -1
+                      mass 0.004599
+                    }
+                  }
+                }
+              ]
+              name "solid13"
+              boundingObject USE THUMB_L2
+              physics Physics {
+                density -1
+                mass 0.009666
+              }
+            }
+          }
+        ]
+        name "solid12"
+        boundingObject USE THUMB_L1
+        physics Physics {
+          density -1
+          mass 0.004251
+        }
+      }
+    }
+  ]
+  boundingObject USE PALM_VISUAL
+  physics Physics {
+    density -1
+    mass 0.176616
+  }
+  name "RightGaiahand"
+  controller "gaiahand_controller"
+}

@@ -1,0 +1,677 @@
+Robot {
+  translation 0 0 0
+  rotation 0 0 1 0
+  children [
+    Shape {
+      appearance DEF left_base_link_material PBRAppearance {
+        baseColor 0.792157 0.819608 0.933333
+        roughness 1.000000
+        metalness 0
+      }
+      geometry DEF left_base_link Mesh {
+        url "left_base_link.STL"
+      }
+    }
+    HingeJoint {
+      jointParameters HingeJointParameters {
+        axis -0.003683 -0.000015 0.999993
+        anchor 0.011787 -0.033111 0.088490
+      }
+      device [
+        RotationalMotor {
+          name "left_thumb_joint_1"
+          minPosition -1.05
+          maxPosition 0.349
+          maxTorque 10000
+        }
+        PositionSensor {
+          name "left_thumb_joint_1_sensor"
+        }
+      ]
+      endPoint Solid {
+        translation 0.011787 -0.033111 0.088490
+        rotation 0.004059 -0.999992 0.000007 0.003683
+        children [
+          Shape {
+            appearance DEF left_thumb_link_1_material PBRAppearance {
+              baseColor 0.792157 0.819608 0.933333
+              roughness 1.000000
+              metalness 0
+            }
+            geometry DEF left_thumb_link_1 Mesh {
+              url "left_thumb_link_1.STL"
+            }
+          }
+          HingeJoint {
+            jointParameters HingeJointParameters {
+              axis 0.000000 -1.000000 -0.000004
+              anchor 0.013000 0.000000 0.000000
+            }
+            device [
+              RotationalMotor {
+                name "left_thumb_joint_2"
+                maxPosition 1.05
+                maxTorque 10000
+              }
+              PositionSensor {
+                name "left_thumb_joint_2_sensor"
+              }
+            ]
+            endPoint Solid {
+              translation 0.013000 0.000000 0.000000
+              rotation 1.000000 0.000000 0.000000 1.570800
+              children [
+                Shape {
+                  appearance DEF left_thumb_link_2_material PBRAppearance {
+                    baseColor 0.792157 0.819608 0.933333
+                    roughness 1.000000
+                    metalness 0
+                  }
+                  geometry DEF left_thumb_link_2 Mesh {
+                    url "left_thumb_link_2.STL"
+                  }
+                }
+                HingeJoint {
+                  jointParameters HingeJointParameters {
+                    axis 0.000000 0.000000 1.000000
+                    anchor 0.047603 0.000000 0.000000
+                  }
+                  device [
+                    RotationalMotor {
+                      name "left_thumb_joint_3"
+                      maxPosition 1.57
+                      maxTorque 10000
+                    }
+                    PositionSensor {
+                      name "left_thumb_joint_3_sensor"
+                    }
+                  ]
+                  endPoint Solid {
+                    translation 0.047603 0.000000 0.000000
+                    children [
+                      Shape {
+                        appearance DEF left_thumb_link_3_material PBRAppearance {
+                          baseColor 0.792157 0.819608 0.933333
+                          roughness 1.000000
+                          metalness 0
+                        }
+                        geometry DEF left_thumb_link_3 Mesh {
+                          url "left_thumb_link_3.STL"
+                        }
+                      }
+                    ]
+                    name "solid2"
+                    boundingObject USE left_thumb_link_3
+                    physics Physics {
+                      density -1
+                      mass 0.004094
+                      centerOfMass [ 0.019283 -0.001984 -0.000167 ]
+                      inertiaMatrix [
+                        1.968072e-07 6.670693e-07 8.033983e-07
+                        3.864077e-08 -2.649643e-09 -1.834159e-09
+                      ]
+                    }
+                  }
+                }
+              ]
+              name "solid1"
+              boundingObject USE left_thumb_link_2
+              physics Physics {
+                density -1
+                mass 0.008759
+                centerOfMass [ 0.026507 -0.003996 0.000139 ]
+                inertiaMatrix [
+                  4.402930e-07 1.042745e-06 1.274003e-06
+                  -4.833715e-08 5.018807e-08 2.179432e-09
+                ]
+              }
+            }
+          }
+        ]
+        name "solid0"
+        boundingObject USE left_thumb_link_1
+        physics Physics {
+          density -1
+          mass 0.003976
+          centerOfMass [ 0.002474 0.000249 0.003934 ]
+          inertiaMatrix [
+            9.525393e-08 1.051692e-07 9.480324e-08
+            -5.133388e-09 -7.422874e-09 -5.024367e-09
+          ]
+        }
+      }
+    }
+    HingeJoint {
+      jointParameters HingeJointParameters {
+        axis 0.999993 -0.000007 -0.003696
+        anchor 0.002568 -0.027928 0.138010
+      }
+      device [
+        RotationalMotor {
+          name "left_index_joint_1"
+          minPosition -0.262
+          maxPosition 0.262
+          maxTorque 10000
+        }
+        PositionSensor {
+          name "left_index_joint_1_sensor"
+        }
+      ]
+      endPoint Solid {
+        translation 0.002568 -0.027928 0.138010
+        rotation -0.708412 0.000003 -0.705799 3.141598
+        children [
+          Shape {
+            appearance DEF left_index_link_1_material PBRAppearance {
+              baseColor 0.792157 0.819608 0.933333
+              roughness 1.000000
+              metalness 0
+            }
+            geometry DEF left_index_link_1 Mesh {
+              url "left_index_link_1.STL"
+            }
+          }
+          HingeJoint {
+            jointParameters HingeJointParameters {
+              axis 0.000000 -1.000000 -0.000004
+              anchor 0.013000 0.000000 0.000000
+            }
+            device [
+              RotationalMotor {
+                name "left_index_joint_2"
+                minPosition -0.349
+                maxPosition 1.57
+                maxTorque 10000
+              }
+              PositionSensor {
+                name "left_index_joint_2_sensor"
+              }
+            ]
+            endPoint Solid {
+              translation 0.013000 0.000000 0.000000
+              rotation 1.000000 0.000000 0.000000 1.570800
+              children [
+                Shape {
+                  appearance DEF left_index_link_2_material PBRAppearance {
+                    baseColor 0.792157 0.819608 0.933333
+                    roughness 1.000000
+                    metalness 0
+                  }
+                  geometry DEF left_index_link_2 Mesh {
+                    url "left_index_link_2.STL"
+                  }
+                }
+                HingeJoint {
+                  jointParameters HingeJointParameters {
+                    axis 0.000000 0.000000 1.000000
+                    anchor 0.047603 0.000000 0.000000
+                  }
+                  device [
+                    RotationalMotor {
+                      name "left_index_joint_3"
+                      maxPosition 1.57
+                      maxTorque 10000
+                    }
+                    PositionSensor {
+                      name "left_index_joint_3_sensor"
+                    }
+                  ]
+                  endPoint Solid {
+                    translation 0.047603 0.000000 0.000000
+                    children [
+                      Shape {
+                        appearance DEF left_index_link_3_material PBRAppearance {
+                          baseColor 0.792157 0.819608 0.933333
+                          roughness 1.000000
+                          metalness 0
+                        }
+                        geometry DEF left_index_link_3 Mesh {
+                          url "left_index_link_3.STL"
+                        }
+                      }
+                    ]
+                    name "solid5"
+                    boundingObject USE left_index_link_3
+                    physics Physics {
+                      density -1
+                      mass 0.004094
+                      centerOfMass [ 0.019283 -0.001984 -0.000167 ]
+                      inertiaMatrix [
+                        1.968064e-07 6.670702e-07 8.033983e-07
+                        3.863570e-08 -2.649627e-09 -1.834183e-09
+                      ]
+                    }
+                  }
+                }
+              ]
+              name "solid4"
+              boundingObject USE left_index_link_2
+              physics Physics {
+                density -1
+                mass 0.008759
+                centerOfMass [ 0.026507 -0.003996 0.000139 ]
+                inertiaMatrix [
+                  4.402930e-07 1.042745e-06 1.274003e-06
+                  -4.833715e-08 5.018807e-08 2.179433e-09
+                ]
+              }
+            }
+          }
+        ]
+        name "solid3"
+        boundingObject USE left_index_link_1
+        physics Physics {
+          density -1
+          mass 0.003976
+          centerOfMass [ 0.002474 0.000249 0.003934 ]
+          inertiaMatrix [
+            9.525394e-08 1.051692e-07 9.480324e-08
+            -5.133389e-09 -7.422875e-09 -5.024367e-09
+          ]
+        }
+      }
+    }
+    HingeJoint {
+      jointParameters HingeJointParameters {
+        axis 0.999993 -0.000007 -0.003696
+        anchor 0.002568 -0.005723 0.141970
+      }
+      device [
+        RotationalMotor {
+          name "left_middle_joint_1"
+          minPosition -0.401
+          maxPosition 0.314
+          maxTorque 10000
+        }
+        PositionSensor {
+          name "left_middle_joint_1_sensor"
+        }
+      ]
+      endPoint Solid {
+        translation 0.002568 -0.005723 0.141970
+        rotation -0.708412 0.000003 -0.705799 3.141598
+        children [
+          Shape {
+            appearance DEF left_middle_link_1_material PBRAppearance {
+              baseColor 0.792157 0.819608 0.933333
+              roughness 1.000000
+              metalness 0
+            }
+            geometry DEF left_middle_link_1 Mesh {
+              url "left_middle_link_1.STL"
+            }
+          }
+          HingeJoint {
+            jointParameters HingeJointParameters {
+              axis 0.000000 -1.000000 -0.000004
+              anchor 0.013000 0.000000 0.000000
+            }
+            device [
+              RotationalMotor {
+                name "left_middle_joint_2"
+                minPosition -0.349
+                maxPosition 1.57
+                maxTorque 10000
+              }
+              PositionSensor {
+                name "left_middle_joint_2_sensor"
+              }
+            ]
+            endPoint Solid {
+              translation 0.013000 0.000000 0.000000
+              rotation 1.000000 0.000000 0.000000 1.570800
+              children [
+                Shape {
+                  appearance DEF left_middle_link_2_material PBRAppearance {
+                    baseColor 0.792157 0.819608 0.933333
+                    roughness 1.000000
+                    metalness 0
+                  }
+                  geometry DEF left_middle_link_2 Mesh {
+                    url "left_middle_link_2.STL"
+                  }
+                }
+                HingeJoint {
+                  jointParameters HingeJointParameters {
+                    axis 0.000000 0.000000 1.000000
+                    anchor 0.047603 0.000000 0.000000
+                  }
+                  device [
+                    RotationalMotor {
+                      name "left_middle_joint_3"
+                      maxPosition 1.57
+                      maxTorque 10000
+                    }
+                    PositionSensor {
+                      name "left_middle_joint_3_sensor"
+                    }
+                  ]
+                  endPoint Solid {
+                    translation 0.047603 0.000000 0.000000
+                    children [
+                      Shape {
+                        appearance DEF left_middle_link_3_material PBRAppearance {
+                          baseColor 0.792157 0.819608 0.933333
+                          roughness 1.000000
+                          metalness 0
+                        }
+                        geometry DEF left_middle_link_3 Mesh {
+                          url "left_middle_link_3.STL"
+                        }
+                      }
+                    ]
+                    name "solid8"
+                    boundingObject USE left_middle_link_3
+                    physics Physics {
+                      density -1
+                      mass 0.004094
+                      centerOfMass [ 0.019283 -0.001984 -0.000167 ]
+                      inertiaMatrix [
+                        1.968064e-07 6.670702e-07 8.033983e-07
+                        3.863571e-08 -2.649623e-09 -1.834188e-09
+                      ]
+                    }
+                  }
+                }
+              ]
+              name "solid7"
+              boundingObject USE left_middle_link_2
+              physics Physics {
+                density -1
+                mass 0.008759
+                centerOfMass [ 0.026507 -0.003996 0.000139 ]
+                inertiaMatrix [
+                  4.402930e-07 1.042745e-06 1.274003e-06
+                  -4.833715e-08 5.018806e-08 2.179432e-09
+                ]
+              }
+            }
+          }
+        ]
+        name "solid6"
+        boundingObject USE left_middle_link_1
+        physics Physics {
+          density -1
+          mass 0.003976
+          centerOfMass [ 0.002474 0.000249 0.003934 ]
+          inertiaMatrix [
+            9.525394e-08 1.051692e-07 9.480324e-08
+            -5.133389e-09 -7.422875e-09 -5.024367e-09
+          ]
+        }
+      }
+    }
+    HingeJoint {
+      jointParameters HingeJointParameters {
+        axis 0.999993 -0.000007 -0.003696
+        anchor 0.002568 0.016251 0.135450
+      }
+      device [
+        RotationalMotor {
+          name "left_ring_joint_1"
+          minPosition -0.349
+          maxPosition 0.175
+          maxTorque 10000
+        }
+        PositionSensor {
+          name "left_ring_joint_1_sensor"
+        }
+      ]
+      endPoint Solid {
+        translation 0.002568 0.016251 0.135450
+        rotation -0.708412 0.000003 -0.705799 3.141598
+        children [
+          Shape {
+            appearance DEF left_ring_link_1_material PBRAppearance {
+              baseColor 0.792157 0.819608 0.933333
+              roughness 1.000000
+              metalness 0
+            }
+            geometry DEF left_ring_link_1 Mesh {
+              url "left_ring_link_1.STL"
+            }
+          }
+          HingeJoint {
+            jointParameters HingeJointParameters {
+              axis 0.000000 -1.000000 -0.000004
+              anchor 0.013000 0.000000 0.000000
+            }
+            device [
+              RotationalMotor {
+                name "left_ring_joint_2"
+                minPosition -0.349
+                maxPosition 1.57
+                maxTorque 10000
+              }
+              PositionSensor {
+                name "left_ring_joint_2_sensor"
+              }
+            ]
+            endPoint Solid {
+              translation 0.013000 0.000000 0.000000
+              rotation 1.000000 0.000000 0.000000 1.570800
+              children [
+                Shape {
+                  appearance DEF left_ring_link_2_material PBRAppearance {
+                    baseColor 0.792157 0.819608 0.933333
+                    roughness 1.000000
+                    metalness 0
+                  }
+                  geometry DEF left_ring_link_2 Mesh {
+                    url "left_ring_link_2.STL"
+                  }
+                }
+                HingeJoint {
+                  jointParameters HingeJointParameters {
+                    axis 0.000000 0.000000 1.000000
+                    anchor 0.047603 0.000000 0.000000
+                  }
+                  device [
+                    RotationalMotor {
+                      name "left_ring_joint_3"
+                      maxPosition 1.57
+                      maxTorque 10000
+                    }
+                    PositionSensor {
+                      name "left_ring_joint_3_sensor"
+                    }
+                  ]
+                  endPoint Solid {
+                    translation 0.047603 0.000000 0.000000
+                    children [
+                      Shape {
+                        appearance DEF left_ring_link_3_material PBRAppearance {
+                          baseColor 0.792157 0.819608 0.933333
+                          roughness 1.000000
+                          metalness 0
+                        }
+                        geometry DEF left_ring_link_3 Mesh {
+                          url "left_ring_link_3.STL"
+                        }
+                      }
+                    ]
+                    name "solid11"
+                    boundingObject USE left_ring_link_3
+                    physics Physics {
+                      density -1
+                      mass 0.004094
+                      centerOfMass [ 0.019283 -0.001984 -0.000167 ]
+                      inertiaMatrix [
+                        1.968064e-07 6.670702e-07 8.033983e-07
+                        3.863570e-08 -2.649623e-09 -1.834188e-09
+                      ]
+                    }
+                  }
+                }
+              ]
+              name "solid10"
+              boundingObject USE left_ring_link_2
+              physics Physics {
+                density -1
+                mass 0.008759
+                centerOfMass [ 0.026507 -0.003996 0.000139 ]
+                inertiaMatrix [
+                  4.402930e-07 1.042745e-06 1.274003e-06
+                  -4.833715e-08 5.018806e-08 2.179432e-09
+                ]
+              }
+            }
+          }
+        ]
+        name "solid9"
+        boundingObject USE left_ring_link_1
+        physics Physics {
+          density -1
+          mass 0.003976
+          centerOfMass [ 0.002474 0.000249 0.003934 ]
+          inertiaMatrix [
+            9.525394e-08 1.051692e-07 9.480324e-08
+            -5.133389e-09 -7.422875e-09 -5.024367e-09
+          ]
+        }
+      }
+    }
+    HingeJoint {
+      jointParameters HingeJointParameters {
+        axis 0.999993 -0.000007 -0.003696
+        anchor 0.002575 0.038291 0.129310
+      }
+      device [
+        RotationalMotor {
+          name "left_little_joint_1"
+          minPosition -0.349
+          maxPosition 0.105
+          maxTorque 10000
+        }
+        PositionSensor {
+          name "left_little_joint_1_sensor"
+        }
+      ]
+      endPoint Solid {
+        translation 0.002575 0.038291 0.129310
+        rotation -0.708412 0.000003 -0.705799 3.141598
+        children [
+          Shape {
+            appearance DEF left_little_link_1_material PBRAppearance {
+              baseColor 0.792157 0.819608 0.933333
+              roughness 1.000000
+              metalness 0
+            }
+            geometry DEF left_little_link_1 Mesh {
+              url "left_little_link_1.STL"
+            }
+          }
+          HingeJoint {
+            jointParameters HingeJointParameters {
+              axis 0.000000 -1.000000 -0.000004
+              anchor 0.013000 0.000000 0.000000
+            }
+            device [
+              RotationalMotor {
+                name "left_little_joint_2"
+                minPosition -0.349
+                maxPosition 1.57
+                maxTorque 10000
+              }
+              PositionSensor {
+                name "left_little_joint_2_sensor"
+              }
+            ]
+            endPoint Solid {
+              translation 0.013000 0.000000 0.000000
+              rotation 1.000000 0.000000 0.000000 1.570800
+              children [
+                Shape {
+                  appearance DEF left_little_link_2_material PBRAppearance {
+                    baseColor 0.792157 0.819608 0.933333
+                    roughness 1.000000
+                    metalness 0
+                  }
+                  geometry DEF left_little_link_2 Mesh {
+                    url "left_little_link_2.STL"
+                  }
+                }
+                HingeJoint {
+                  jointParameters HingeJointParameters {
+                    axis 0.000000 0.000000 1.000000
+                    anchor 0.047603 0.000000 0.000000
+                  }
+                  device [
+                    RotationalMotor {
+                      name "left_little_joint_3"
+                      maxPosition 1.57
+                      maxTorque 10000
+                    }
+                    PositionSensor {
+                      name "left_little_joint_3_sensor"
+                    }
+                  ]
+                  endPoint Solid {
+                    translation 0.047603 0.000000 0.000000
+                    children [
+                      Shape {
+                        appearance DEF left_little_link_3_material PBRAppearance {
+                          baseColor 0.792157 0.819608 0.933333
+                          roughness 1.000000
+                          metalness 0
+                        }
+                        geometry DEF left_little_link_3 Mesh {
+                          url "left_little_link_3.STL"
+                        }
+                      }
+                    ]
+                    name "solid14"
+                    boundingObject USE left_little_link_3
+                    physics Physics {
+                      density -1
+                      mass 0.004094
+                      centerOfMass [ 0.019283 -0.001984 -0.000167 ]
+                      inertiaMatrix [
+                        1.968064e-07 6.670702e-07 8.033983e-07
+                        3.863570e-08 -2.649627e-09 -1.834183e-09
+                      ]
+                    }
+                  }
+                }
+              ]
+              name "solid13"
+              boundingObject USE left_little_link_2
+              physics Physics {
+                density -1
+                mass 0.008759
+                centerOfMass [ 0.026507 -0.003996 0.000139 ]
+                inertiaMatrix [
+                  4.402930e-07 1.042745e-06 1.274003e-06
+                  -4.833715e-08 5.018806e-08 2.179432e-09
+                ]
+              }
+            }
+          }
+        ]
+        name "solid12"
+        boundingObject USE left_little_link_1
+        physics Physics {
+          density -1
+          mass 0.003976
+          centerOfMass [ 0.002474 0.000249 0.003926 ]
+          inertiaMatrix [
+            9.525394e-08 1.051692e-07 9.480324e-08
+            -5.133389e-09 -7.422875e-09 -5.024367e-09
+          ]
+        }
+      }
+    }
+  ]
+  boundingObject USE left_base_link
+  physics Physics {
+    density -1
+    mass 0.173723
+    centerOfMass [ -0.028448 0.000543 0.076707 ]
+    inertiaMatrix [
+      3.181907e-04 2.129017e-04 1.309544e-04
+      -1.915653e-07 1.740426e-05 7.138372e-07
+    ]
+  }
+  name "LeftGaiahand"
+  controller "<extern>"
+}

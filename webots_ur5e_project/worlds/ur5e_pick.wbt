@@ -1,0 +1,139 @@
+#VRML_SIM R2025a utf8
+
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/backgrounds/protos/TexturedBackground.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/backgrounds/protos/TexturedBackgroundLight.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/floors/protos/Floor.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/appearances/protos/ThreadMetalPlate.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/robots/universal_robots/protos/UR5e.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/solids/protos/SolidBox.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/appearances/protos/GalvanizedMetal.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/appearances/protos/BrushedAluminium.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/tables/protos/Table.proto"
+
+WorldInfo {
+  info [
+    "UR5e Minimal Pick-and-Place with Connector (magnetic grasp)"
+    "No IK - uses GPS-calibrated fixed joint angles"
+  ]
+  title "UR5e Connector Pick Demo"
+  basicTimeStep 16
+  contactProperties [
+    ContactProperties {
+      bounce 0.02
+    }
+  ]
+}
+Viewpoint {
+  orientation -0.28 0.62 0.73 0.85
+  position -2.8 -2.2 3.0
+  exposure 1.7
+}
+TexturedBackground {
+  texture "factory"
+}
+TexturedBackgroundLight {
+}
+Floor {
+  size 4 4
+  appearance ThreadMetalPlate {
+  }
+}
+SolidBox {
+  translation 0 0 0.4
+  name "robot_base"
+  size 0.4 0.4 0.8
+  appearance GalvanizedMetal {
+  }
+}
+UR5e {
+  translation 0 0 0.8
+  rotation 0 0 1 -1.5708
+  controller "ur5e_pick"
+  selfCollision FALSE
+  toolSlot [
+    Connector {
+      translation 0 0.05 0
+      rotation 1 0 0 -1.5708
+      name "connector"
+      model "magnetic"
+      isLocked FALSE
+      unilateralLock TRUE
+      unilateralUnlock TRUE
+      distanceTolerance 0.15
+      axisTolerance 3.15
+      rotationTolerance 3.15
+      numberOfRotations 0
+      snap TRUE
+      tensileStrength -1
+      shearStrength -1
+    }
+    GPS {
+      translation 0 0.05 0
+      name "tool_gps"
+    }
+  ]
+}
+Table {
+  translation 0.5 0 0
+  name "pick_table"
+  size 0.8 0.8 0.74
+  feetSize 0.04 0.04
+  trayAppearance PBRAppearance {
+    baseColor 0.82 0.82 0.78
+    roughness 0.7
+    metalness 0
+  }
+  legAppearance BrushedAluminium {
+    colorOverride 0.35 0.35 0.33
+  }
+}
+DEF TARGET Solid {
+  translation 0.45 0 0.775
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 0.9 0.12 0.12
+        roughness 0.3
+        metalness 0.1
+      }
+      geometry Box {
+        size 0.06 0.06 0.06
+      }
+    }
+    Connector {
+      translation 0 0 0.035
+      name "target_conn"
+      model "magnetic"
+      isLocked TRUE
+      distanceTolerance 0.15
+      axisTolerance 3.15
+      rotationTolerance 3.15
+      numberOfRotations 0
+      snap TRUE
+      tensileStrength -1
+      shearStrength -1
+    }
+  ]
+  name "target_box"
+  boundingObject Box {
+    size 0.06 0.06 0.06
+  }
+  physics Physics {
+    density -1
+    mass 0.5
+  }
+}
+Table {
+  translation -0.5 0 0
+  name "place_table"
+  size 0.6 0.8 0.74
+  feetSize 0.04 0.04
+  trayAppearance PBRAppearance {
+    baseColor 0.7 0.78 0.88
+    roughness 0.7
+    metalness 0
+  }
+  legAppearance BrushedAluminium {
+    colorOverride 0.35 0.35 0.33
+  }
+}

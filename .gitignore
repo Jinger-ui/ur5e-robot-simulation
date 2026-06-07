@@ -1,0 +1,35 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
+*.egg-info/
+
+# Logs
+*.log
+
+# Third-party cloned repos (reference only)
+webots_ros2/
+open_source_hand/
+
+# IDE / Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS generated
+Thumbs.db
+Desktop.ini
+.DS_Store
+
+# Environment
+.env
+node_modules/
+
+# Obsidian metadata
+.obsidian/
+
+# Error reports (binary hashes)
+ErrorReports/
