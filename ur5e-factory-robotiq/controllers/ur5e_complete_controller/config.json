@@ -1,0 +1,35 @@
+{
+  "robot": {
+    "base_position": [0, 0, 0.8],
+    "base_rotation_z": -1.5708,
+    "max_velocity": 1.5,
+    "connector_offset_y": 0.14
+  },
+  "task": {
+    "targets": [
+      {"name": "target_1", "world_position": [0.45,  0.00, 0.805], "color": "red"},
+      {"name": "target_2", "world_position": [0.45, -0.10, 0.805], "color": "green"},
+      {"name": "target_3", "world_position": [0.45,  0.10, 0.805], "color": "blue"}
+    ],
+    "home_joints": [0.0, -1.5708, 0.0, -1.5708, 0.0, 0.0]
+  },
+  "gripper": {
+    "type": "Robotiq3fGripper",
+    "role": "visual_only",
+    "finger_motors": ["finger_1_joint_1", "finger_2_joint_1", "finger_middle_joint_1"],
+    "finger_open": 0.05,
+    "finger_close": 1.0,
+    "note": "Fingers provide visual animation; Connector handles physical grasp"
+  },
+  "connector": {
+    "model": "magnetic",
+    "distance_tolerance": 0.15,
+    "note": "Hidden connector co-located with GPS at gripper center"
+  },
+  "timing": {
+    "grasp_wait_ms": 1500,
+    "release_wait_ms": 1000,
+    "settle_wait_ms": 500,
+    "calibration_settle_ms": 400
+  }
+}
