@@ -20,13 +20,18 @@
 
 | 顺序 | 版本 | 仓库 | 提交 | 修改内容 |
 |------|------|------|------|----------|
-| 1 | 参数化仿人手 | 本仓库 | `62648d0` | Python 参数化生成五指仿人手 DXF/SCR（`generate_humanoid_hand.py`） |
-| 2 | GaiaHand 15-DOF 灵巧手 | 本仓库 | `62648d0` | 集成 Stella-robot/GaiaHand 开源 STL，Webots 五指关节仿真 |
-| 3 | 双指夹爪 + Connector（3/3 成功） | 本仓库 | `e7f4bf3` | GPS 校准 + 隐藏 Connector 磁吸抓取，完整工厂场景，3 个物体全部抓放成功 |
+| 1 | 参数化仿人手 | [ur5e-robot-simulation](https://github.com/Jinger-ui/ur5e-robot-simulation) | `003be2f` | Python 参数化生成五指仿人手 DXF/SCR（`generate_humanoid_hand.py`） |
+| 2 | GaiaHand 15-DOF 灵巧手 | [ur5e-robot-simulation](https://github.com/Jinger-ui/ur5e-robot-simulation) | `003be2f` | 集成 Stella-robot/GaiaHand 开源 STL，Webots 五指关节仿真 |
+| 3 | 双指夹爪 + Connector（3/3 成功） | [ur5e-robot-simulation](https://github.com/Jinger-ui/ur5e-robot-simulation) | `8c55d09` | GPS 校准 + 隐藏 Connector 磁吸抓取，完整工厂场景，3 个物体全部抓放成功 |
 | 4 | Robotiq 三指夹爪初版 | [ur5e-factory-robotiq](https://github.com/Jinger-ui/ur5e-factory-robotiq) | `79ee877` | UR5e + Robotiq 3F 工厂场景，18 状态 FSM，5 种形状目标物 |
 | 5 | Robotiq 三指 + Connector 修复 | [ur5e-factory-robotiq](https://github.com/Jinger-ui/ur5e-factory-robotiq) | `aee3cfc` | 三指视觉动画 + 隐藏 Connector，实现 3/3 可靠抓放 |
 | 6 | Robotiq 三指 + 强化学习 | [ur5e-factory-robotiq](https://github.com/Jinger-ui/ur5e-factory-robotiq) | `1480f59` | SAC/GPU 训练管线，Gymnasium 环境，TensorBoard 实验记录 |
 | 7 | Robotiq 三指最终版（小球抓取） | [ur5e-factory-robotiq](https://github.com/Jinger-ui/ur5e-factory-robotiq) | `2e6f396` | `ur5e_final` 完整工厂背景 + GPS 校准 + Connector 物理抓取小球 |
+| 8 | 小球抓取迭代修复 | [ur5e-factory-robotiq](https://github.com/Jinger-ui/ur5e-factory-robotiq) | `2dcb9e7` | Connector/GPS 调参，5 次迭代验证单球抓放成功 |
+| 9 | 实验运行器 + 双球场景 | 两仓库 | `a5fa9de` / `bef1d45` | `experiment_runner.py`、红蓝双球、arm_camera 第一视角 |
+| 10 | v8 颜色分拣 | 两仓库 | `3a932e3` / `13642c5` | 红球→左框、蓝球→右框，OpenCV HSV 颜色识别 |
+| 11 | v10 快速分拣 | 两仓库 | `9178e34` / `0adb017` | MAX_VEL 3.0，双彩色容器，总时间 120s（较 v8 提速 44%） |
+| 12 | v11 调优分拣 | 两仓库 | `bc171c5` / `ba4324a` | 压缩等待/超时，总时间 115s，2/2 分拣成功 |
 
 ---
 
